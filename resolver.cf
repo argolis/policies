@@ -1,0 +1,27 @@
+
+
+bundle agent resolver {
+
+    packages:
+        linux::
+            "resolvconf"
+                policy => "absent";
+
+
+    files:
+        linux::
+            "/etc/resolv.conf"
+                comment       => "Resolver config file",
+                create        => "true",
+                perms         => mog("644", "root", "root"),
+                edit_line     => expand_template("$(sys.inputdir)/files/etc/resolv.conf"),
+                edit_defaults => empty;
+                
+            "/etc/nsswitch.conf"
+                comment       => "Name service config file",
+                create        => "true",
+                perms         => mog("644", "root", "root"),
+                edit_line     => expand_template("$(sys.inputdir)/files/etc/nsswitch.conf"),
+                edit_defaults => empty;
+
+}
