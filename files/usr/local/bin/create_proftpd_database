@@ -7,12 +7,14 @@
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 
-# set initial password (if password is empty)
-#mysqladmin -u'root' password 'hpx1273' 2>/dev/null
-mysql -u'root' -e "SET password for 'root'@'localhost' = PASSWORD('hpx1273');" || /bin/true
+# set initial password and create users
+mysql -u'root' -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('hpx1273');" 2>/dev/null || /bin/true
+mysql -u'root' -p'hpx1273' -e "CREATE USER 'proftpd'@'localhost' IDENTIFIED BY 'hpx1273';" 2>/dev/null || /bin/true
+mysql -u'root' -p'hpx1273' -e "GRANT ALL ON proftpd.* TO 'proftpd'@'localhost';" 2>/dev/null || /bin/true
+
 
 # create database 
-mysql -u'root' -p'hpx1273' <<SQL_COMMANDS
+mysql -u'root' -p'hpx1273' 2>/dev/null <<SQL_COMMANDS
   
   CREATE DATABASE IF NOT EXISTS proftpd;
   USE proftpd;
@@ -34,7 +36,6 @@ mysql -u'root' -p'hpx1273' <<SQL_COMMANDS
 
 SQL_COMMANDS
 
+mysql -u'root' -p'hpx1273' -e "INSERT INTO users (userid, passwd, uid, gid, homedir, shell) VALUES ('arne', 'hpx1273', '1000', '1000', '/srv/ftp/arne', 'bin/bash');" 2>/dev/null || /bin/true
 
-
-# CREATE INDEX groups_gid_idx ON groups (gid);
-# CREATE INDEX users_userid_idx ON users (userid);
+exit 0

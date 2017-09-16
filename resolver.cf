@@ -2,6 +2,12 @@
 
 bundle agent resolver {
 
+    vars:
+        "domain"      slist => { "sandara.org" };
+        "searchlist"  slist => { "sandara.org" };
+        "nameservers" slist => { "192.168.10.3" };
+
+
     packages:
         linux::
             "resolvconf"
@@ -9,19 +15,14 @@ bundle agent resolver {
 
 
     files:
-        linux::
-            "/etc/resolv.conf"
-                comment       => "Resolver config file",
-                create        => "true",
-                perms         => mog("644", "root", "root"),
-                edit_line     => expand_template("$(sys.inputdir)/files/etc/resolv.conf"),
-                edit_defaults => empty;
-                
-            "/etc/nsswitch.conf"
-                comment       => "Name service config file",
-                create        => "true",
-                perms         => mog("644", "root", "root"),
-                edit_line     => expand_template("$(sys.inputdir)/files/etc/nsswitch.conf"),
-                edit_defaults => empty;
+        "/etc/resolv.conf"
+            comment       => "Resolver config file",
+            edit_template => "$(sys.inputdir)/files/etc/resolv.conf",
+            perms         => mog("644", "root", "root");
+            
+        "/etc/nsswitch.conf"
+            comment       => "Name service config file",
+            edit_template => "$(sys.inputdir)/files/etc/nsswitch.conf",
+            perms         => mog("644", "root", "root");
 
 }
