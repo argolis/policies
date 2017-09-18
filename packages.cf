@@ -1,0 +1,32 @@
+
+
+bundle agent packages {
+
+    vars:
+        "packages_wanted" slist =>  { "atool",
+                                      "less",
+                                      "strace",
+                                      "whois",
+                                      "lsof",
+                                      "atop",
+                                      "tcpdump",
+                                      "xterm",
+                                      "net-tools"
+                                    };
+
+        "packages_unwanted" slist =>  { "bash-completion",
+                                        "resolvconf"
+                                      };
+
+
+    packages:
+        "$(packages_wanted)"
+            policy => "present";
+        
+        "$(packages_unwanted)"
+            policy => "absent";
+
+
+}
+
+# vim: ft=cf3 foldlevel=99
