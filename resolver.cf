@@ -13,13 +13,13 @@ bundle agent resolver {
             comment       => "Resolver config file",
             create        => "yes",
             perms         => mog("644", "root", "root"),
-            edit_template => "$(sys.inputdir)/files/etc/resolv.conf";
+            edit_template => "$(sys.inputdir)/policies/files/etc/resolv.conf";
             
         "/etc/nsswitch.conf"
             comment       => "Name service config file",
             create        => "yes",
             perms         => mog("644", "root", "root"),
-            edit_template => "$(sys.inputdir)/files/etc/nsswitch.conf";
+            edit_template => "$(sys.inputdir)/policies/files/etc/nsswitch.conf";
 
 }
 

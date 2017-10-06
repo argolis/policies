@@ -38,20 +38,20 @@ bundle agent nameserver {
             create        => "true",
             perms         => mog("644", "root", "bind"),
             classes       => if_repaired("bind_restart_needed"),
-            edit_template => "$(sys.inputdir)/files/nameserver/etc/bind/named.conf";
+            edit_template => "$(sys.inputdir)/policies/files/nameserver/etc/bind/named.conf";
 
         "/var/cache/bind/sandara.org"
             comment       => "Zone file for sandara.org",
             create        => "true",
             perms         => mog("644", "root", "root"),
             classes       => if_repaired("bind_reload_needed"),
-            edit_template => "$(sys.inputdir)/files/nameserver/var/cache/bind/sandara.org";
+            edit_template => "$(sys.inputdir)/policies/files/nameserver/var/cache/bind/sandara.org";
 
         "/var/cache/bind/192.168.10.rev"
             comment       => "Reverse zone file for sandara.org",
             create        => "true",
             perms         => mog("644", "root", "root"),
             classes       => if_repaired("bind_reload_needed"),
-            edit_template => "$(sys.inputdir)/files/nameserver/var/cache/bind/192.168.10.rev";
+            edit_template => "$(sys.inputdir)/policies/files/nameserver/var/cache/bind/192.168.10.rev";
 
 }

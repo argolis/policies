@@ -17,7 +17,7 @@ bundle agent ssh {
             comment       => "SSH daemon config",
             create        => "yes",
             perms         => mog("644", "root", "root"),
-            edit_template => "$(sys.inputdir)/files/etc/ssh/sshd_config";
+            edit_template => "$(sys.inputdir)/policies/files/etc/ssh/sshd_config";
 
         "/root/.ssh/."
             comment => "Directory /root/.ssh",
@@ -28,7 +28,7 @@ bundle agent ssh {
             comment       => "Autorized keys file for root account",
             create        => "yes",
             perms         => mog("644", "root", "root"),
-            edit_template => "$(sys.inputdir)/files/root/.ssh/authorized_keys";
+            edit_template => "$(sys.inputdir)/policies/files/root/.ssh/authorized_keys";
 
 }
 
