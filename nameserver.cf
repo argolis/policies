@@ -1,0 +1,57 @@
+
+
+bundle agent nameserver {
+    
+    vars:
+        "packages" slist => { "bind9",
+                              "bind9-doc",
+                              "bind9-host",
+                              "bind9utils",
+                              "dnsutils",
+                              "hostname",
+                              "iputils-ping"
+                            };
+
+
+
+    packages:
+        "$(packages)"
+            policy => "present";
+
+            
+    services:
+        "bind9"
+           service_policy => "start"; 
+    
+    
+    commands:
+        bind_restart_needed::
+            "/bin/systemctl restart bind9.service";
+
+        bind_reload_needed::
+            "/usr/sbin/rndc reload";
+
+
+    files:    
+        "/etc/bind/named.conf"
+            comment       => "Config file for Bind 9",
+            create        => "true",
+            perms         => mog("644", "root", "bind"),
+            classes       => if_repaired("bind_restart_needed"),
+            edit_template => "$(sys.inputdir)/files/nameserver/etc/bind/named.conf";
+
+        "/var/cache/bind/sandara.org"
+            comment       => "Zone file for sandara.org",
+            create        => "true",
+            perms         => mog("644", "root", "root"),
+            classes       => if_repaired("bind_reload_needed"),
+            edit_template => "$(sys.inputdir)/files/nameserver/var/cache/bind/sandara.org";
+
+        "/var/cache/bind/192.168.10.rev"
+            comment       => "Reverse zone file for sandara.org",
+            create        => "true",
+            perms         => mog("644", "root", "root"),
+            classes       => if_repaired("bind_reload_needed"),
+            edit_template => "$(sys.inputdir)/files/nameserver/var/cache/bind/192.168.10.rev";
+
+}

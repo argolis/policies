@@ -1,0 +1,31 @@
+
+
+bundle agent main {
+
+    methods:
+        any::
+            "Resolver config"         
+                usebundle   => resolver;
+            
+            "SSH config"
+                usebundle   => ssh;
+            
+            "Vim"
+                usebundle   => vim;
+            
+            "Bash"
+                usebundle   => bash;
+
+            "Tools and stuff"
+                usebundle   => packages;
+
+
+        ns_sandara_org|argolis_sandara_org::
+            "Nameserver setup"  
+                usebundle   => nameserver;
+
+
+        ftp_sandara_org::
+            "ProFTPD setup"
+                usebundle   => proftpd;
+}

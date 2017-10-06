@@ -1,0 +1,24 @@
+
+
+bundle agent bash {
+
+    packages:
+        "bash"
+            policy => "present";
+
+
+    files:    
+        "/root/.bashrc"
+            comment       => "~/.bashrc for root",
+            create        => "true",
+            perms         => mog("640", "root", "root"),
+            edit_template => "$(sys.inputdir)/files/root/.bashrc";
+
+#       "/home/*/.bashrc"
+#           comment       => "~/.bashrc for users",
+#           create        => "true",
+#           perms         => mog("640", "root", "root"),
+#           edit_template => "$(sys.inputdir)/files/root/.bashrc";
+}
+
+# vim: ft=cf3 foldlevel=99

@@ -1,0 +1,36 @@
+
+
+bundle agent packages {
+
+    vars:
+        "wanted_packages" slist =>  { "atool",
+                                      "less",
+                                      "aptitude",
+                                      "strace",
+                                      "whois",
+                                      "lsof",
+                                      "atop",
+                                      "tcpdump",
+                                      "xterm",
+                                      "net-tools",
+                                      "bind9-host",
+                                      "dnsutils",
+                                      "locate"
+                                    };
+
+        "unwanted_packages" slist =>  { "bash-completion",
+                                        "resolvconf"
+                                      };
+
+
+    packages:
+        "$(wanted_packages)"
+            policy => "present";
+        
+        "$(unwanted_packages)"
+            policy => "absent";
+
+
+}
+
+

@@ -1,0 +1,43 @@
+
+
+bundle agent vim {
+
+    packages:
+        "vim"
+            policy => "present";
+
+
+    files:    
+        "/root/.vimrc"
+            comment       => "~/.vimrc for root",
+            create        => "true",
+            perms         => m("644"),
+            edit_template => "$(sys.inputdir)/files/root/.vimrc";
+
+        "/root/.vim/."
+            comment => "Directory ~/.vim for root",
+            create  => "true",
+            perms   => mog("644", "root", "root");
+
+        "/root/.vim/ftplugin/."
+            comment => "Directory ~/.vim/ftplugin for root",
+            create  => "true",
+            perms   => mog("644", "root", "root");
+
+        "/root/.vim/ftplugin/cf3.vim"
+            create        => "true",
+            perms         => m("644"),
+            edit_template => "$(sys.inputdir)/files/root/.vim/ftplugin/cf3.vim";
+
+        "/root/.vim/ftdetect/."
+            comment => "Directory ~/.vim/ftdetect for root",
+            create  => "true",
+            perms   => mog("644", "root", "root");
+
+        "/root/.vim/ftdetect/cf3.vim"
+            create        => "true",
+            perms         => m("644"),
+            edit_template => "$(sys.inputdir)/files/root/.vim/ftdetect/cf3.vim";
+
+}
+
