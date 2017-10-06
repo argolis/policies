@@ -1,0 +1,49 @@
+
+$TTL    86400
+$ORIGIN sandara.org.
+
+@  1D  IN  SOA ns.sandara.org. admin.sandara.org. (
+                  2017091109 ; serial
+                  3H         ; refresh
+                  15         ; retry
+                  1w         ; expire
+                  3h         ; nxdomain ttl
+)
+
+
+                    IN  NS      ns.sandara.org.
+
+router              IN  A       192.168.10.1
+c2940               IN  A       192.168.10.2
+ns                  IN  A       192.168.10.3
+;
+ts800               IN  A       192.168.10.5
+net4501             IN  A       192.168.10.6
+cube                IN  A       192.168.10.7
+tx200               IN  A       192.168.10.8
+box                 IN  A       192.168.10.9
+
+; container
+vault               IN  A       192.168.10.50
+ftp                 IN  A       192.168.10.51
+freeipa             IN  A       192.168.10.52
+cf-hub              IN  A       192.168.10.53
+syncope             IN  A       192.168.10.54
+fusiondirectory     IN  A       192.168.10.55
+proxy               IN  A       192.168.10.56
+vault               IN  A       192.168.10.57
+
+argolis             IN  A       192.168.10.100
+
+netgear-voip        IN  A       192.168.10.150
+ex3700              IN  A       192.168.10.151
+ssg5                IN  A       192.168.10.160
+saskia              IN  A       192.168.10.170
+smartos             IN  A       192.168.10.171
+
+; remote management 
+c2940-cons          IN  A       192.168.10.201
+net4501-cons        IN  A       192.168.10.202
+cube-cons           IN  A       192.168.10.203
+tx200-cons          IN  A       192.168.10.204
+

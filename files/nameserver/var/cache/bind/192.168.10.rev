@@ -1,0 +1,49 @@
+
+$TTL    86400
+$ORIGIN 10.168.192.IN-ADDR.ARPA.
+
+@  1D  IN    SOA ns.sandara.org.   admin.sandara.org. (
+                  2002022409 ; serial
+                  3H         ; refresh
+                  15         ; retry
+                  1w         ; expire
+                  3h         ; minimum
+)
+
+
+        IN  NS      ns.sandara.org.
+
+1       IN  PTR     router.sandara.org.
+2       IN  PTR     c2940.sandara.org.
+3       IN  PTR     ns.sandara.org.
+;
+5       IN  PTR     ts800.sandara.org.
+6       IN  PTR     net4501.sandara.org.
+7       IN  PTR     cube.sandara.org.
+8       IN  PTR     tx200.sandara.org.
+9       IN  PTR     box.sandara.org.
+
+; container
+50      IN  PTR     vault.sandara.org.
+51      IN  PTR     ftp.sandara.org.
+52      IN  PTR     freeipa.sandara.org.
+53      IN  PTR     cf-hub.sandara.org.
+54      IN  PTR     syncope.sandara.org.
+55      IN  PTR     fusiondirectory.sandara.org.
+56      IN  PTR     proxy.sandara.org.
+57      IN  PTR     vault.sandara.org.
+
+100     IN  PTR     argolis.sandara.org.
+
+150     IN  PTR     netgear-voip.sandara.org.
+151     IN  PTR     ex3700.sandara.org.
+160     IN  PTR     ssg5.sandara.org.
+170     IN  PTR     saskia.sandara.org.
+171     IN  PTR     smartos.sandara.org.
+
+; remote management
+201     IN  PTR     c2940-cons.sandara.org.
+202     IN  PTR     net4501-cons.sandara.org.
+203     IN  PTR     cube-cons.sandara.org.
+204     IN  PTR     tx200-cons.sandara.org.
+
