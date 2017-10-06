@@ -1,0 +1,56 @@
+
+
+bundle agent repos {
+    
+    vars:
+        "packages" slist => {   "nginx-full",
+                                "nginx-doc"
+                            };
+                                
+
+        "repo_dirs" slist => {  "/var/www/repos/.",
+                                "/var/www/repos/development/.",
+                                "/var/www/repos/development/incoming/.",
+                                "/var/www/repos/development/stretch/.",
+                                "/var/www/repos/testing/.",
+                                "/var/www/repos/testing/incoming/.",
+                                "/var/www/repos/testing/stretch/.",
+                                "/var/www/repos/production/.",
+                                "/var/www/repos/production/incoming/.",
+                                "/var/www/repos/production/stretch/."
+                              };
+
+
+    packages:
+        repos_office_primervoto_de::
+            "$(packages)"
+                policy => "present";
+
+    
+    files:
+        repos_office_primervoto_de::
+            "$(repo_dirs)"
+                comment       => "Directory for repositories",
+                create        => "true",
+                perms         => mog("0755", "root", "root");
+
+            "/etc/nginx/."
+                comment       => "Config directory for nginx",
+                create        => "true",
+                perms         => mog("0755", "root", "root");
+
+            "/etc/nginx/nginx.conf"
+                comment       => "Config file for nginx",
+                create        => "true",
+                perms         => mog("0644", "root", "root"),
+                edit_template => "$(sys.inputdir)/files/$(sys.fqhost)/etc/nginx/nginx.conf";
+
+
+    services:
+        repos_office_primervoto_de::
+            "nginx"
+               service_policy => "start"; 
+
+
+
+}                

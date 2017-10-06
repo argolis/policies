@@ -1,0 +1,22 @@
+
+
+bundle agent sonar {
+
+    vars:
+        "packages" slist => {   "openjdk-8-jre",
+                                "adduser",
+                                "mysql-server"
+                            }; 
+
+    packages:
+      sonar_office_primervoto_de::
+          "$(packages)"
+              policy => "present";
+
+    
+    files:
+        "/etc/apt/sources.list"
+
+
+
+}
