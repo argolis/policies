@@ -3,10 +3,15 @@
 bundle agent resolver {
 
     vars:
-        "domain"      slist => { "sandara.org" };
-        "searchlist"  slist => { "sandara.org" };
-        "nameservers" slist => { "192.168.10.3" };
+#       sandara_org::
+#           "domain"      slist => { "sandara.org" };
+#           "searchlist"  slist => { "sandara.org" };
+#           "nameservers" slist => { "192.168.10.3", "192.168.10.100" };
 
+#       primervoto.de::
+            "domain"      slist => { "office.primervoto.de" };
+            "searchlist"  slist => { "office.primervoto.de" };
+            "nameservers" slist => { "172.20.100.1" };
 
     files:
         "/etc/resolv.conf"

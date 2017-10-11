@@ -4,7 +4,8 @@ bundle agent ssh {
 
     vars:
         "packages" slist => { "openssh-server" };
-        "keys"     slist => { "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtLlYdJFvc9inA2hkE6LKZlbgLrYydYzDqEG55/ug7iNJd+wqkxOZAuJn9zlSJmQDLeK2jD/tNdizE7lKOAEka+iLfWicx8AimAgtG37vtr9WEjK4nfLQu0C8Z/V5ko4RASmqUDbcDAntCzNtuubNiShjZPUAmN93ssMj3cCQS1w9pfRwjYjGBN+rBtfcpHECuFZ8vwR1pzw+GG0GVj5dBeTvPmmHkHjwmP3S/bw1XKWNhxWUVfszb7VLSoJsLOpcaE5+deEunYIIIKZChXHhyRfOqiL9NoTfC4y/s8p2pajWfkPtUCdNccOrdqWQghKwOFLyJQih0eohg64xUd7w3 arne@argolis.sandara.org" };
+        "keys"     slist => { "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtLlYdJFvc9inA2hkE6LKZlbgLrYydYzDqEG55/ug7iNJd+wqkxOZAuJn9zlSJmQDLeK2jD/tNdizE7lKOAEka+iLfWicx8AimAgtG37vtr9WEjK4nfLQu0C8Z/V5ko4RASmqUDbcDAntCzNtuubNiShjZPUAmN93ssMj3cCQS1w9pfRwjYjGBN+rBtfcpHECuFZ8vwR1pzw+GG0GVj5dBeTvPmmHkHjwmP3S/bw1XKWNhxWUVfszb7VLSoJsLOpcaE5+deEunYIIIKZChXHhyRfOqiL9NoTfC4y/s8p2pajWfkPtUCdNccOrdqWQghKwOFLyJQih0eohg64xUd7w3 arne@argolis.sandara.org 
+                               ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/SiftKg9Wv9Vth0p/6DsvEhdkcE5aYdw72JqTVFMf6nctcZMocERdRW7pNp1UEyZgCPng0/4qPuyGhz4rOhxTDNCPMM+AoaIJyZroz8eAqnon/U3sPSmoSVp6RQHKSEsa9zev9G3Oluv33qNyC8mZGUz5RO/btPVU6YhnHbuDYnHdsyD8FnVCf99wCqSvs/00C0ijfC0WkmrAvBMja0CyJlYog6vTe/0JzVB/IcEEXnjFFHB92dGQ0OP4y5swx6fZAaDIj8gb6AozZK122wRj+XAPVLKClCP0bMYfsKi9IC87UHfPxX4Bwv03NEyyi9n72A5NOEr6sjd8wpMlDXf6iGQ+MDvmkX+9Io+qzXvnRggtaIwg/G3CfjE2T5Esuf6BcHeLAdNUnfR4EPr7cBiYxtpyrtqUe4GC0BoPL0MYOiuGykhCR0iDtcnuGBqcWs28Y7i8fuDzwmGz+kH1tHHqziP4hGoRhAJqucBEXrJSPwVg4Nm0kYaEtiFoxXz6+LGEIOGEFCx6ldgEf4usJ7RgfJogVy0r+EYvYqXkbbNYaKEfJsDAHGEEY9QK6I0cIhqmHXh9dBXaiZw8DnuR6nENzdsxA4i5cHMAFqsevX2S6t85fJQVA+CTuvU4Vq1v4RZkROYoaZB3qaMyYg4tV+v8wjoVptfTDQFVrdc6kudsCw== ahoffmann@primervoto.de " };
 
 
     packages:
