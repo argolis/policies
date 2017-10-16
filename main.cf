@@ -28,4 +28,8 @@ bundle agent main {
         ftp_sandara_org::
             "ProFTPD setup"
                 usebundle   => proftpd;
+        
+        grandstream_office_primervoto_de::
+            "Grandstream config server setup"
+                usebundle   => grandstream;
 }
